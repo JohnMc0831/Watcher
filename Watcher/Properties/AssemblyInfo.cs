@@ -6,12 +6,12 @@ using System.Runtime.InteropServices;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: AssemblyTitle("Watcher")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyDescription("The Watcher on the Wall")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
+[assembly: AssemblyCompany("Faster Than Light Technologies, LLC")]
 [assembly: AssemblyProduct("Watcher")]
 [assembly: AssemblyCopyright("Copyright ©  2018")]
-[assembly: AssemblyTrademark("")]
+[assembly: AssemblyTrademark("Trademark (tm) 2018")]
 [assembly: AssemblyCulture("")]
 
 // Version information for an assembly consists of the following four values:
