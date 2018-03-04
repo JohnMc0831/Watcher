@@ -27,7 +27,7 @@
                    Style="{StaticResource HeaderTextBlockStyle}"
                    Foreground="LightGreen"
         />
-        
+
         <TextBlock Grid.Row="0" Grid.Column="1" 
                    Margin="10" FontWeight="Bold" 
                    Text="EntryWay" HorizontalAlignment="Center" VerticalAlignment="Top"
@@ -58,7 +58,7 @@
         <TextBlock Grid.Row="1" Grid.Column="0" 
                    Margin="10" FontWeight="Bold" 
                    Text="Temperature/Pressure Status" HorizontalAlignment="Center" VerticalAlignment="Top"
-                   Style="{StaticResource SubheaderTextBlockStyle}" Foreground="LightGreen" />
+                   Style="{StaticResource SubheaderTextBlockStyle}" Foreground="LightGreen" FocusVisualPrimaryBrush="{x:Null}" />
         <TextBlock Grid.Row="1" Grid.Column="1" 
                 Margin="10" FontWeight="Bold" 
                 Text="Earthquake Detection Center" HorizontalAlignment="Center" VerticalAlignment="Top"
@@ -66,5 +66,8 @@
         <TextBlock Grid.Row="1" Grid.Column="2" 
                    Margin="10" FontWeight="Bold" 
                    Text="Weather" HorizontalAlignment="Center" VerticalAlignment="Top" Foreground="LightGreen" Style="{StaticResource SubheaderTextBlockStyle}" />
+        <TextBlock x:Name="CurrentTemp" Grid.ColumnSpan="3" HorizontalAlignment="Left" Margin="67,614,-129,-634" Grid.RowSpan="2" Text="" TextWrapping="Wrap" VerticalAlignment="Top" RenderTransformOrigin="-5.71,-0.9">
+            Temperature:
+        </TextBlock>
     </Grid>
 </Page>
