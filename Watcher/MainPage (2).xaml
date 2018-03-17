@@ -27,7 +27,7 @@
                    Style="{StaticResource HeaderTextBlockStyle}"
                    Foreground="LightGreen"
         />
-
+        
         <TextBlock Grid.Row="0" Grid.Column="1" 
                    Margin="10" FontWeight="Bold" 
                    Text="EntryWay" HorizontalAlignment="Center" VerticalAlignment="Top"
@@ -55,8 +55,7 @@
             <TextBlock Grid.Row="2" Grid.Column="0" Text="Mud Room" Margin="10,100,10,10" Foreground="Gold"
                         HorizontalAlignment="Left" VerticalAlignment="Top" />
         </Grid>
-        <TextBlock Name="SensorDisplay"
-                   Grid.Row="1" Grid.Column="0" 
+        <TextBlock Grid.Row="1" Grid.Column="0" 
                    Margin="10" FontWeight="Bold" 
                    Text="Temperature/Pressure Status" HorizontalAlignment="Center" VerticalAlignment="Top"
                    Style="{StaticResource SubheaderTextBlockStyle}" Foreground="LightGreen" />
@@ -67,7 +66,5 @@
         <TextBlock Grid.Row="1" Grid.Column="2" 
                    Margin="10" FontWeight="Bold" 
                    Text="Weather" HorizontalAlignment="Center" VerticalAlignment="Top" Foreground="LightGreen" Style="{StaticResource SubheaderTextBlockStyle}" />
-
-
     </Grid>
 </Page>

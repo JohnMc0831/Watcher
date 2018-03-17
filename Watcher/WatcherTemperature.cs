@@ -23,8 +23,7 @@ namespace Watcher
 
         public WatcherTemperature()
         {
-            var hat = SenseHatFactory.GetSenseHat();
-            hat.
+
         }
 
         public WatcherTemperature(double temp)
