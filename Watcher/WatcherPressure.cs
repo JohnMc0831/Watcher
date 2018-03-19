@@ -8,8 +8,8 @@ namespace Watcher
 {
     public class WatcherPressure
     {
-        public static float Millibars { get; set; }
-        public static float LastMillibars { get; set; }
+        public static double? Millibars { get; set; }
+        public static double? LastMillibars { get; set; }
         public static bool IsDropping { get; set; }
         public static bool IsRising { get; set; }
         public static bool IsSteady { get; set; }
@@ -19,14 +19,14 @@ namespace Watcher
 
         }
 
-        public WatcherPressure(float millibars)
+        public WatcherPressure(double? millibars)
         {
             SetPressure(millibars);
         }
 
-        public void SetPressure(float millibars)
+        public void SetPressure(double? millibars)
         {
-            LastMillibars = Math.Abs(Millibars) > 0f ? Millibars : 0f;
+            LastMillibars = Millibars > 0? Millibars : 0.0;
             Millibars = millibars;
             if (LastMillibars < Millibars)
             {

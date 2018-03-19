@@ -8,8 +8,8 @@ namespace Watcher
 {
     public class WatcherHumidity
     {
-        public static float Humidity { get; set; }
-        public static float LastHumidity { get; set; }
+        public static double? Humidity { get; set; }
+        public static double? LastHumidity { get; set; }
         public static bool IsDropping { get; set; }
         public static bool IsRising { get; set; }
         public static bool IsSteady { get; set; }
@@ -19,14 +19,14 @@ namespace Watcher
 
         }
 
-        public WatcherHumidity(float humidity)
+        public WatcherHumidity(double? humidity = 0)
         {
-            SetHumidity(humidity);
+            
         }
 
-        public void SetHumidity(float humidity)
+        public void SetHumidity(double? humidity)
         {
-            LastHumidity = Math.Abs(Humidity) > 0f ? Humidity : 0f;
+            LastHumidity = Humidity > 0 ? Humidity : 0;
             Humidity = humidity;
             if (LastHumidity < Humidity)
             {

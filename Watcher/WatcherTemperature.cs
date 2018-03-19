@@ -15,18 +15,18 @@ namespace Watcher
     /// </summary>
     public class WatcherTemperature
     {
-        public static double Celsius { get; set; }
-        public static double LastCelsius { get; set; }
-        public static bool IsDropping { get; set; }
-        public static bool IsRising { get; set; }
-        public static bool IsSteady { get; set; }
+        public double? Celsius { get; set; }
+        public double? LastCelsius { get; set; }
+        public bool IsDropping { get; set; }
+        public bool IsRising { get; set; }
+        public bool IsSteady { get; set; }
 
         public WatcherTemperature()
         {
 
         }
 
-        public WatcherTemperature(double temp)
+        public WatcherTemperature(double? temp)
         {
            SetTemperature(temp);
         }
@@ -40,9 +40,9 @@ namespace Watcher
         ///     -IsSteady - there is no change in temperature
         /// </summary>
         /// <param name="temp"></param>
-        public void SetTemperature(double temp)
+        public void SetTemperature(double? temp)
         {
-            LastCelsius = Math.Abs(Celsius) > Double.Epsilon ? Celsius : 0.0;
+            LastCelsius = Celsius > Double.Epsilon ? Celsius : 0.0;
             Celsius = temp;
             if (LastCelsius < Celsius)
             {
@@ -68,12 +68,12 @@ namespace Watcher
             }
         }
 
-        public static double ToFahrenheit()
+        public double? ToFahrenheit()
         {
             return ((9.0 / 5.0) * Celsius) + 32;
         }
 
-        public static double ToCelsius(double f)
+        public double ToCelsius(double f)
         {
             return (5.0 / 9.0) * (f - 32);
         }

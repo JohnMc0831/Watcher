@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
@@ -27,14 +28,23 @@ namespace Watcher
     /// </summary>
     public sealed partial class MainPage : Page
     {
+        public WatcherViewModel Model;
         public MainPage()
         {
             this.InitializeComponent();
             Task.Run(async () =>
             {
                 ISenseHat hat = await SenseHatFactory.GetSenseHat().ConfigureAwait(false);
-                var temp = hat.Sensors.Temperature.Value;
-                this.SensorDisplay.Text = temp.ToString();
+                var sensors = new ReadAllSensors(hat);
+                ISenseHatSensors sensorReadings = sensors.Run();
+                string temp = sensorReadings.Temperature?.ToString() ?? "N/A";
+                Debug.WriteLine($"TEMP: {temp} Celsius");
+                var t = new WatcherTemperature(Convert.ToDouble(temp));
+                Debug.WriteLine($"TEMP: {t.ToFahrenheit()} Fahrenheit");
+                Debug.WriteLine($"HUMIDITY: {sensorReadings.Humidity?.ToString()}");
+                Debug.WriteLine($"BAROMETRIC PRESSURE: {sensorReadings.Pressure?.ToString()}");
+                Debug.WriteLine($"MAGNETOMETER: {sensorReadings.MagneticField?.ToString()}");
+                Debug.WriteLine($"");
             });
         }
     }

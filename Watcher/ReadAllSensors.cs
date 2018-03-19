@@ -32,41 +32,69 @@ namespace Watcher
 {
 	public class ReadAllSensors
 	{
-	    public ISenseHat SenseHat = SenseHatFactory.GetSenseHat().Result;
-		public string Run()
-		{
-			TimeSpan mainPageUpdateRate = TimeSpan.FromSeconds(0.5);
-			DateTime nextMainPageUpdate = DateTime.Now.Add(mainPageUpdateRate);
-            
-            var stringBuilder = new StringBuilder();
+	    public ReadAllSensors(ISenseHat senseHat)
+	    {
+	    }
 
-			while (true)
-			{
-			    Task.Delay(TimeSpan.FromSeconds(50));
+        public ISenseHat SenseHat = SenseHatFactory.GetSenseHat().Result;
 
-                SenseHat.Sensors.ImuSensor.Update();      // Try get a new read-out for the Gyro, Acceleration, MagneticField and Pose.
-				SenseHat.Sensors.PressureSensor.Update(); // Try get a new read-out for the Pressure.
-				SenseHat.Sensors.HumiditySensor.Update(); // Try get a new read-out for the Temperature and Humidity.
+	    public ISenseHatSensors Run()
+	    {
+	        TimeSpan mainPageUpdateRate = TimeSpan.FromSeconds(0.5);
+	        DateTime nextMainPageUpdate = DateTime.Now.Add(mainPageUpdateRate);
 
-				// Build up the string
-				stringBuilder.Clear();
-				stringBuilder.AppendLine($"Gyro: {SenseHat.Sensors.Gyro?.ToString(false) ?? "N/A"}");          // From the ImuSensor.
-				stringBuilder.AppendLine($"Accel: {SenseHat.Sensors.Acceleration?.ToString(false) ?? "N/A"}"); // From the ImuSensor.
-				stringBuilder.AppendLine($"Mag: {SenseHat.Sensors.MagneticField?.ToString(false) ?? "N/A"}");  // From the ImuSensor.
-				stringBuilder.AppendLine($"Pose: {SenseHat.Sensors.Pose?.ToString(false) ?? "N/A"}");          // From the ImuSensor.
-				stringBuilder.AppendLine($"Press: {SenseHat.Sensors.Pressure?.ToString() ?? "N/A"}");          // From the PressureSensor.
-				stringBuilder.AppendLine($"Temp: {SenseHat.Sensors.Temperature?.ToString() ?? "N/A"}");        // From the HumiditySensor.
-				stringBuilder.AppendLine($"Hum: {SenseHat.Sensors.Humidity?.ToString() ?? "N/A"}");            // From the HumiditySensor.
+	        while (true)
+	        {
+	            Task.Delay(TimeSpan.FromSeconds(50));
 
-				//if ((SetScreenText != null) && nextMainPageUpdate <= DateTime.Now)
-				//{
-				//	SetScreenText(stringBuilder.ToString());
-				//	nextMainPageUpdate = DateTime.Now.Add(mainPageUpdateRate);
-				//}
+	            SenseHat.Sensors.ImuSensor.Update(); // Try get a new read-out for the Gyro, Acceleration, MagneticField and Pose.
+	            SenseHat.Sensors.PressureSensor.Update(); // Try get a new read-out for the Pressure.
+	            SenseHat.Sensors.HumiditySensor.Update(); // Try get a new read-out for the Temperature and Humidity.
+	            return SenseHat.Sensors;
 
-				Debug.WriteLine(stringBuilder.ToString());
-			    return stringBuilder.ToString();
-			}
-		}
+	            //Populate the ViewModel object.
+	            //WatcherViewModel model = new WatcherViewModel();
+	            //model.Humidity.SetHumidity(SenseHat.Sensors.Humidity);
+	            //model.Temperature.SetTemperature(SenseHat.Sensors.Temperature);
+	            //model.BarometricPressure.SetPressure(SenseHat.Sensors.Pressure);
+	            //model.Pose.X = SenseHat.Sensors.Pose?.X;
+	            //model.Pose.Y = SenseHat.Sensors.Pose?.Y;
+	            //model.Pose.Z = SenseHat.Sensors.Pose?.Z;
+	            //model.Magnetometer.X = SenseHat.Sensors.MagneticField?.X;
+	            //model.Magnetometer.Y = SenseHat.Sensors.MagneticField?.Y;
+	            //model.Magnetometer.Z = SenseHat.Sensors.MagneticField?.Z;
+	            //model.Accelerometer.X = SenseHat.Sensors.Acceleration?.X;
+	            //model.Accelerometer.Y = SenseHat.Sensors.Acceleration?.Y;
+	            //model.Accelerometer.Z = SenseHat.Sensors.Acceleration?.Z;
+	            //model.Gyroscope.X = SenseHat.Sensors.Gyro?.X;
+	            //model.Gyroscope.Y = SenseHat.Sensors.Gyro?.Y;
+	            //model.Gyroscope.Z = SenseHat.Sensors.Gyro?.Z;
+	            // Build up the string
+	            //stringBuilder.Clear();
+	            //stringBuilder.AppendLine(
+	            //    $"Gyro: {SenseHat.Sensors.Gyro?.ToString(false) ?? "N/A"}"); // From the ImuSensor.
+	            //stringBuilder.AppendLine(
+	            //    $"Accel: {SenseHat.Sensors.Acceleration?.ToString(false) ?? "N/A"}"); // From the ImuSensor.
+	            //stringBuilder.AppendLine(
+	            //    $"Mag: {SenseHat.Sensors.MagneticField?.ToString(false) ?? "N/A"}"); // From the ImuSensor.
+	            //stringBuilder.AppendLine(
+	            //    $"Pose: {SenseHat.Sensors.Pose?.ToString(false) ?? "N/A"}"); // From the ImuSensor.
+	            //stringBuilder.AppendLine(
+	            //    $"Press: {SenseHat.Sensors.Pressure?.ToString() ?? "N/A"}"); // From the PressureSensor.
+	            //stringBuilder.AppendLine(
+	            //    $"Temp: {SenseHat.Sensors.Temperature?.ToString() ?? "N/A"}"); // From the HumiditySensor.
+	            //stringBuilder.AppendLine(
+	            //    $"Hum: {SenseHat.Sensors.Humidity?.ToString() ?? "N/A"}"); // From the HumiditySensor.
+
+	            ////if ((SetScreenText != null) && nextMainPageUpdate <= DateTime.Now)
+	            ////{
+	            ////	SetScreenText(stringBuilder.ToString());
+	            ////	nextMainPageUpdate = DateTime.Now.Add(mainPageUpdateRate);
+	            ////}
+
+	            //Debug.WriteLine(stringBuilder.ToString());
+                //return stringBuilder.ToString();
+	        }
+	    }
 	}
 }

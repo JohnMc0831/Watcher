@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using RichardsTech.Sensors;
 
 namespace Watcher
 {
@@ -18,7 +19,14 @@ namespace Watcher
         public WatcherTemperature Temperature { get; set; }
         public WatcherPressure BarometricPressure { get; set; }
         public WatcherHumidity Humidity { get; set; }
+        public WatcherAccelerometer Accelerometer { get; set; }
+        public WatcherPose Pose { get; set; }
+        public WatcherGyro Gyroscope { get; set; }
+        public WatcherMagnetometer Magnetometer { get; set; }
 
-      
+        public WatcherViewModel()
+        {
+            
+        }
     }
 }

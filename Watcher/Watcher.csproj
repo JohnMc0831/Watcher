@@ -100,7 +100,11 @@
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ReadAllSensors.cs" />
+    <Compile Include="WatcherAccelerometer.cs" />
+    <Compile Include="WatcherGyro.cs" />
     <Compile Include="WatcherHumidity.cs" />
+    <Compile Include="WatcherMagnetometer.cs" />
+    <Compile Include="WatcherPose.cs" />
     <Compile Include="WatcherPressure.cs" />
     <Compile Include="WatcherTemperature.cs" />
     <Compile Include="WatcherViewModel.cs" />
