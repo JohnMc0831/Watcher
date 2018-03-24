@@ -33,11 +33,13 @@
                     HorizontalAlignment="Left" 
                     Margin="23,71,-314,-470" Text="Updating..." 
                     Style="{StaticResource CaptionTextBlockStyle}" 
-                    Foreground="AliceBlue" 
+                    Foreground="Turquoise" 
                     TextWrapping="Wrap" 
                     VerticalAlignment="Top" 
                     Height="399" 
-                    Width="291"/>
+                    Width="291">
+        </TextBlock>
+
 
 
         <TextBlock Grid.Row="0" Grid.Column="1" 
@@ -72,15 +74,6 @@
                    Margin="10" FontWeight="Bold" 
                    Text="Temperature/Pressure Status" HorizontalAlignment="Center" VerticalAlignment="Top"
                    Style="{StaticResource SubheaderTextBlockStyle}" Foreground="LightGreen" />-->
-        <TextBlock x:Name="SensorReadingsText" 
-                   Grid.Row="1"
-                   Grid.Column="0" 
-                   Margin="10" 
-                   FontWeight="Bold" 
-                   Style="{StaticResource SubheaderTextBlockStyle}" 
-                   Text="Updating..." 
-                   HorizontalAlignment="Center" 
-                   VerticalAlignment="Center" />
 
 
         <TextBlock Grid.Row="1" Grid.Column="1" 
